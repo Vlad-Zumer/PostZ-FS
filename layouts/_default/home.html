@@ -1,0 +1,23 @@
+{{ define "custom-head" }}
+  {{- with resources.Get "css/list.css" }}
+    {{ partial "head/load-css.html" .}}
+  {{- end }}
+
+  {{- with resources.Get "css/post-card.css" }}
+    {{ partial "head/load-css.html" .}}
+  {{- end }}
+{{end}}
+
+{{ define "main" }}
+  <div id="list-content">
+    <div>
+      {{ .Content }}
+    </div>
+  </div>
+
+  <div id="list-container">
+    {{ range where site.RegularPages "Section" "!=" "index" | first 5 }}
+      {{ partial "cards/post" .}}
+    {{ end }}
+  </div>
+{{ end }}

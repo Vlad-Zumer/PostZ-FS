@@ -1,0 +1,93 @@
+{{ define "custom-head" }}
+  {{- with resources.Get "css/single.css" }}
+    {{ partial "head/load-css.html" .}}
+  {{- end }}
+{{end}}
+
+{{ define "main" }}
+
+{{ $dateTruncateDuration := time.ParseDuration "24h" }}
+{{ $truncatedPublishDate := .PublishDate.Truncate $dateTruncateDuration }}
+{{ $truncatedLastmodDate := .Lastmod.Truncate $dateTruncateDuration }}
+{{ $showLastEditRow := $truncatedLastmodDate.After $truncatedPublishDate}}
+
+
+<h1 id="title">{{ .Title }}</h1>
+
+  <div id="meta-data">
+    <div class="time">
+      <div class="time-publish">
+        <table class="metadata-table">
+          <tr>
+            <td class="metadata-item-name">Published:</td>
+            <td class="metadata-item-value">
+              <time datetime="{{ $truncatedPublishDate.Format `2006-01-02T15:04:05-07:00` }}">
+                {{ $truncatedPublishDate.Format "2006-Jan-02" }}
+              </time>
+            </td>
+          </tr>
+        </table>
+      </div>
+      {{if $showLastEditRow }}
+        <div class="time-last-edit">
+          <table class="metadata-table">
+            <tr>
+              <td class="metadata-item-name">Last edit:</td>
+              <td class="metadata-item-value">
+                <time datetime="{{ $truncatedLastmodDate.Format `2006-01-02T15:04:05-07:00` }}">
+                  {{ $truncatedLastmodDate.Format "2006-Jan-02" }}
+              </time>
+              </td>
+            </tr>
+          </table>
+        </div>
+      {{end}}
+    </div>
+    <div class="taxonomies">
+      <div class="taxonomy">
+        <table class="metadata-table">
+          <tr>
+            <td class="metadata-item-name">
+              <div class="taxonomy-name">Type:</div> 
+            </td>
+            <td class="metadata-item-value">
+              <div class="taxonomy-item">
+                {{- if in (.Site.Param "no-inflect-types") .Section -}}
+                  <a href="{{ (.Site.GetPage .Section).RelPermalink }}">{{ (.Site.GetPage .Section).LinkTitle }}</a>
+                {{- else -}}
+                  <a href="{{ (.Site.GetPage .Section).RelPermalink }}">{{ (.Site.GetPage .Section).LinkTitle | singularize }}</a>
+                {{- end -}}
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      {{ range $taxonomyName, $terms := .Site.Taxonomies }}
+        {{ $taxonomy := $.GetTerms $taxonomyName }}
+        {{ $taxonomyLen := len $taxonomy }}
+        {{ if gt $taxonomyLen 0}}
+          <div class="taxonomy">
+            <table class="metadata-table">
+              <tr>
+                <td class="metadata-item-name">
+                  <div class="taxonomy-name">{{ ($.Site.GetPage $taxonomyName).LinkTitle }}:</div>
+                </td>
+                <td class="metadata-item-value">
+                  {{ range $taxonomy }}
+                    <div class="taxonomy-item">
+                      <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                    </div>
+                  {{ end }}
+                </td>
+              </tr>
+            </table>
+          </div>
+        {{end}}
+      {{end}}
+    </div>
+  </div>
+
+  <div id="content">
+    {{ .Content }}
+  </div>
+{{ end }}

@@ -1,0 +1,21 @@
+@import url("definitions.css");
+
+.list-item {
+    margin-left: 1rem;
+    padding-left: 1.2rem;
+    border-left: 3px solid var(--item-border-color);
+
+    /* if we add padding it takes into account the margin of the inside */
+    padding-top: 0.75rem;
+    padding-bottom: 1rem;
+
+    cursor: pointer;
+}
+
+.list-item:hover {
+    background: linear-gradient(90deg, var(--item-highlight-bg-color) 0%, var(--item-highlight-bg-color) 30%, transparent 100%);
+}
+
+.list-item:hover .list-item-title a {
+    color: var(--link-hover-color);
+}

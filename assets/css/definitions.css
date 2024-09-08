@@ -1,0 +1,88 @@
+:root {
+    /* Page background */
+    --main-bg-color-light:hsl(30, 25%, 90%);
+    --main-bg-color-dark:hsl(249, 14%, 10%);
+    --main-bg-color: light-dark(var(--main-bg-color-light), var(--main-bg-color-dark));
+
+    /* Most text is written in this color - main article body */
+    --primary-font-color: light-dark(#080808, #f8f8f8);
+
+    /* Slightly less important text in this color - creation date, image caption  */
+    --secondary-font-color: light-dark(#404040, #b0b0b0);
+
+    /* Less important text in this color - ? */
+    --tertiary-font-color: light-dark(#808080, #707070);
+
+    /* Most text that needs an accent color */
+    --primary-accent-font-color: light-dark(hsl(260, 90%, 22%), hsl(150, 100%, 70%));
+
+    /* Secondary accent */
+    --secondary-accent-font-color: light-dark(red, blue);
+
+    /* Tertiary accent */
+    --tertiary-accent-font-color: light-dark(red, blue);
+
+    /* link colors */
+    --link-normal-color: light-dark(hsl(350, 100%, 30%), hsl(150, 100%, 40%));
+    --link-hover-color: light-dark(hsl(20, 100%, 50%), hsl(330, 80%, 60%));
+
+    /* Background highlight of items on list pages */
+    --item-highlight-bg-color: light-dark(rgba(0, 0, 0, 0.07), hsla(0, 0%, 100%, 0.03));
+
+    /* Border color of items on list pages */
+    --item-border-color: var(--secondary-font-color);
+
+    /* Width of the main content on the page */
+    --main-content-width: calc(100% - 40px);
+}
+
+.dark {
+    color-scheme: dark;
+}
+
+.light {
+    color-scheme: light;
+}
+
+.hidden {
+    display: none;
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    :root {
+        --main-content-width: 500px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    :root {
+        --main-content-width: 600px;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    :root {
+        --main-content-width: 700px;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    :root {
+        --main-content-width: 1000px;
+    }
+}
+
+/* Extra Extra large devices (large laptops and desktops, 2200px and up) */
+@media only screen and (min-width: 2200px) {
+    :root {
+        --main-content-width: 1300px;
+    }
+}

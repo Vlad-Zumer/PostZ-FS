@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   fill="#000000"
+   width="100"
+   height="100"
+   viewBox="0 0 100 100"
+   version="1.1"
+   preserveAspectRatio="xMidYMid"
+   id="svg1"
+   sodipodi:docname="folder-open-svgrepo-com.svg"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="5.695"
+     inkscape:cx="102.98507"
+     inkscape:cy="76.470588"
+     inkscape:window-width="3440"
+     inkscape:window-height="1377"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <title
+     id="title1">folder-open-solid</title>
+  <path
+     class="clr-i-solid clr-i-solid-path-1"
+     d="M 99.207279,36.487813 A 5.4164894,5.4234062 0 0 0 94.61435,34.140842 H 22.711245 a 8.2039225,8.2143989 0 0 0 -7.12696,4.820806 3.1675377,3.1715826 0 0 0 0,0.444021 L 6.3350753,72.199834 V 15.111347 H 26.892394 l 8.267274,11.385981 a 3.1675377,3.1715826 0 0 0 2.565706,1.300349 H 88.691055 A 6.3350753,6.3431652 0 0 0 82.355979,21.454512 H 39.340818 L 32.023806,11.36888 A 6.3350753,6.3431652 0 0 0 26.892394,8.7681818 H 6.3350753 A 6.3350753,6.3431652 0 0 0 0,15.111347 v 71.96321 A 4.3395266,4.3450682 0 0 0 4.4662281,91.22933 H 83.432942 a 3.1675377,3.1715826 0 0 0 3.167537,-2.28354 L 99.872462,41.054893 a 5.1947618,5.2013955 0 0 0 -0.665183,-4.56708 z"
+     id="path1"
+     style="stroke-width:1" />
+  <rect
+     x="0"
+     y="0"
+     width="36"
+     height="36"
+     fill-opacity="0"
+     id="rect1" />
+  <metadata
+     id="metadata1">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>folder-open-solid</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

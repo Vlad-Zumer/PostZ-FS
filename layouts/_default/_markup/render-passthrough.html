@@ -1,0 +1,11 @@
+{{ if eq .Type "block" }}
+<div class="block-maths-container">
+  $$block-maths{{.Inner}}$$
+</div>
+{{ else }}
+<span class="inline-maths-container">
+  {{- range (split .Inner " ") -}}
+    $$inline-maths{{ . }} $$
+  {{- end -}}
+</span>
+{{ end }}

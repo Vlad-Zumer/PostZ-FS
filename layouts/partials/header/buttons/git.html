@@ -1,0 +1,7 @@
+{{ if isset .Site.Params "github-page"}}
+    <div id="header-git-icon">
+        <a href="{{ .Site.Param `github-page` }}">
+            {{ partial "svg-icons/git.html" . }}
+        </a>
+    </div>
+{{end}}

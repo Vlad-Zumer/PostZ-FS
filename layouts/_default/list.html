@@ -1,0 +1,22 @@
+{{ define "custom-head" }}
+  {{- with resources.Get "css/list.css" }}
+    {{ partial "head/load-css.html" .}}
+  {{- end }}
+
+
+  {{- with resources.Get "css/post-card.css" }}
+    {{ partial "head/load-css.html" .}}
+  {{- end }}
+{{end}}
+
+{{ define "main" }}
+  <h1 id="list-title">{{ .Title }}</h1>
+  <div id="list-content">
+    {{ .Content }}
+  </div>
+  <div id="list-container">
+    {{ range .Pages }}
+      {{partial "cards/post" .}}
+    {{ end }}
+  </div>
+{{ end }}

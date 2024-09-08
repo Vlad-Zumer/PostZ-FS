@@ -1,0 +1,85 @@
+@import url("definitions.css");
+
+#title {
+  font-size: 5rem;
+  line-height: 100%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+
+  border-bottom: 3px solid var(--primary-font-color);
+}
+
+#meta-data {
+  margin-top: 2rem;
+  margin-left: 2rem;
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+  border-left: 2px solid var(--secondary-font-color);
+  border-bottom: 1px solid var(--secondary-font-color);
+  color: var(--secondary-font-color);
+}
+
+#content {
+  margin-top: 2rem;
+}
+
+#content p {
+  margin-left: 1rem;
+  margin-bottom: 2rem;
+  text-indent: 2rem;
+}
+
+#content pre {
+  margin-left: 1rem;
+  margin-bottom: 2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+#content blockquote p:last-child {
+  margin-bottom: 0px !important;
+}
+
+#content blockquote {
+  margin-left: 1rem;
+  margin-bottom: 2rem;
+}
+
+#content :is(h1,h2,h3,h4,h5,h6) {
+  line-height: 100%;
+  margin-bottom: 3rem;
+  text-decoration: underline;
+}
+
+.block-maths-container *, .inline-maths-container *
+{
+  color: var(--primary-accent-font-color);
+  font-weight: bolder;
+}
+
+.block-maths-container {
+  overflow-x: auto;
+}
+
+.inline-maths-container {
+  border-bottom: 1px solid var(--primary-accent-font-color);
+}
+
+.taxonomy-item {
+  display: inline-block;
+}
+
+table.metadata-item-table td {
+  vertical-align: text-top;
+}
+
+.metadata-item-name {
+  text-decoration: underline;
+  font-weight: bolder;
+  padding-right: .5rem;
+}
+
+.metadata-item-value:not(:has(a)) {
+  font-style: oblique 10deg;
+}

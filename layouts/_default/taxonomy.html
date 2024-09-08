@@ -1,0 +1,23 @@
+{{ define "custom-head" }}
+  {{- with resources.Get "css/list.css" }}
+    {{ partial "head/load-css.html" .}}
+  {{- end }}
+
+  {{- with resources.Get "css/index-list-item.css" }}
+    {{ partial "head/load-css.html" .}}
+  {{- end }}
+{{end}}
+
+{{ define "main" }}
+  <h1 id="list-title">{{ .Title }}</h1>
+
+  <div id="list-container">
+      {{ range .Pages }}
+        <div class="list-item" onclick="location.href='{{ .RelPermalink}}'">
+          <h2 class="list-item-title">
+            <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+          </h2>
+        </div>
+      {{end}}
+  </div>
+{{ end }}

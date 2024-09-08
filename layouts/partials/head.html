@@ -1,0 +1,46 @@
+<meta charset="utf-8">
+<meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width">
+<meta name="color-scheme" content="dark light">
+<link rel="canonical" href="{{ .Site.BaseURL }}">
+
+{{/*  favicon  */}}
+{{ with .Site.Params.favicon }}<link rel="icon" href="{{ . }}">{{ end -}}
+
+{{/*  Page title  */}}
+<title>{{ if not .IsHome }}{{ .Title | title }} | {{ end }}{{ .Site.Title }}</title>
+
+{{ $seoTags := slice }}
+
+{{/*  Add seo keywords  */}}
+{{ if gt (len .Section) 0 }}
+    {{ $seoTags = $seoTags | append .Section }}
+{{ end }}
+
+{{ if isset .Params "areas" }}
+    {{ $seoTags = $seoTags | append (.Params.areas) }}
+{{ end }}
+
+{{ if isset .Params "tags" }}
+    {{ $seoTags = $seoTags | append (.Params.tags) }}
+{{ end }}
+
+{{ if isset .Params "seo-tags" }}
+    {{ $seoTags = $seoTags | append (.Param "seo-tags") }}
+{{ end }}
+
+{{ if gt (len $seoTags) 0 }}
+    <meta name="keywords" content="{{ delimit $seoTags `, ` }}">
+{{ end }}
+
+{{/*  Description  */}}
+<meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}">
+
+{{ if .Param "math" }}
+    {{ partialCached "head/katex-maths.html" . }}
+{{ end }}
+
+
+{{/*  common CSS and JS loading  */}}
+{{ partialCached "head/css.html" . }}
+{{ partialCached "head/js.html" . }}

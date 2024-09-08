@@ -1,0 +1,102 @@
+@import url("definitions.css");
+
+.post-card {
+  margin-left: 1rem;
+  padding-left: 1.2rem;
+  border-left: 3px solid var(--item-border-color);
+
+  /* if we add padding it takes into account the margin of the inside */
+  padding-top: 0.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px dashed var(--item-border-color);
+
+  cursor: pointer;
+}
+
+.post-card:hover {
+  background: linear-gradient(90deg, var(--item-highlight-bg-color) 0%, var(--item-highlight-bg-color) 30%, transparent 100%);
+}
+
+.post-card:hover .post-card-title a {
+  color: var(--link-hover-color);
+}
+
+.post-card-title {
+  margin-bottom: 1rem;
+}
+
+.post-card-meta-info {
+  border-left: 3px solid var(--tertiary-font-color);
+}
+
+.post-card:hover .post-card-meta-info .post-card-taxonomy {
+  display: block;
+}
+
+.post-card-inline-meta>* {
+  display: inline-block;
+}
+
+.post-card-meta-info .post-card-inline-meta>*:not(:last-child)::after {
+  content: "|";
+}
+
+.post-card-type {
+  color: var(--secondary-font-color);
+  padding-left: 1rem;
+}
+
+.post-card-type>*:not(:first-child) {
+  font-style: oblique 10deg;
+}
+
+.post-card-type *:first-child {
+  text-decoration: underline;
+  font-weight: bolder;
+}
+
+.post-card-time {
+  color: var(--tertiary-font-color);
+  padding-left: 1rem;
+}
+
+.post-card-time>*:not(:first-child) {
+  font-style: oblique 10deg;
+}
+
+.post-card-time>*:first-child {
+  text-decoration: underline;
+  font-weight: bolder;
+}
+
+.post-card-taxonomy {
+  color: var(--tertiary-font-color);
+  padding-left: 1rem;
+}
+
+.post-card-taxonomy>*:not(:first-child) {
+  font-style: oblique 10deg;
+}
+
+.post-card-taxonomy>*:first-child {
+  text-decoration: underline;
+  font-weight: bolder;
+}
+
+@media (pointer: fine) {
+  .post-card-taxonomy {
+      display: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .post-card-taxonomy {
+      display: block;
+  }
+}
+
+@media (pointer: none) {
+  .post-card-taxonomy {
+      display: block;
+  }
+}

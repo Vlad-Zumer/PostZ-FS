@@ -1,0 +1,22 @@
+{{- with resources.Get "js/main.js" }}
+  {{ partial "head/load-js.html" (dict "jsRes" . "defer" false)}}
+{{- end }}
+
+{{- with resources.Get "js/theme.js" }}
+  {{ partial "head/load-js.html" (dict "jsRes" . "defer" true)}}
+{{- end }}
+
+
+{{ define "partials/head/load-js.html" }}
+  {{- if eq hugo.Environment "development" }}
+    {{- $opts := dict "sourcemap" "external" }}
+    {{- with .jsRes | js.Build $opts }}
+      <script {{ if $.defer }}defer{{ end }} src="{{ .RelPermalink }}"></script>
+    {{- end }}
+  {{- else }}
+    {{- $opts := dict "minify" true }}
+    {{- with .jsRes | js.Build $opts | fingerprint }}
+        <script {{ if $.defer }}defer{{ end }} src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity }}" crossorigin="anonymous"></script>
+    {{- end }}
+  {{- end }}
+{{ end }}

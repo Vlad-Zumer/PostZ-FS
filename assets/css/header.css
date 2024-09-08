@@ -1,0 +1,33 @@
+@import url("definitions.css");
+
+#header-buttons-container {
+    display: flex;
+    width: fit-content;
+    margin: auto;
+    margin-top: 20px;
+    
+    --icon-color: light-dark(var(--main-bg-color-dark), var(--main-bg-color-light))
+}
+
+#header-buttons-container svg {
+    width: calc(4rem + 25px);
+    height: calc(4rem + 25px);
+    display: inline-block;
+    padding: 10px;
+    fill-opacity: 1;
+    fill: var(--icon-color);
+    cursor: pointer;
+    border-bottom: 5px solid transparent;
+}
+
+#header-buttons-container svg:hover {
+    border-bottom: 5px solid var(--link-hover-color);
+}
+
+#header-buttons-container .svg-dark-mode-visible {
+    fill: light-dark(transparent, var(--main-bg-color-light));
+}
+
+#header-buttons-container .svg-light-mode-visible {
+    fill: light-dark(var(--main-bg-color-dark), transparent);
+}
