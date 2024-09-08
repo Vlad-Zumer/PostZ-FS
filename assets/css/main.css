@@ -79,7 +79,9 @@ footer {
   color: var(--secondary-font-color);
   border-top: 2px solid var(--secondary-font-color);
   align-content: center;
+  padding-top: 1rem;
   margin-top: 1rem;
+  margin-bottom: 2rem;
 }
 
 a {
@@ -106,6 +108,16 @@ ul, ol {
 
 ul {
   list-style-type: disc;
+}
+
+.center-x {
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  justify-content: center;
+
+  width: fit-content;
+  margin: auto;
 }
 
 @font-face {
