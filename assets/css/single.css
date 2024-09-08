@@ -30,7 +30,7 @@
   text-indent: 2rem;
 }
 
-#content>ul, #content>ol {
+#content ul, #content ol {
   margin-bottom: 2rem;
 }
 
