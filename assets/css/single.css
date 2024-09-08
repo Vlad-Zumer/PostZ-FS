@@ -30,6 +30,10 @@
   text-indent: 2rem;
 }
 
+#content>ul, #content>ol {
+  margin-bottom: 2rem;
+}
+
 #content pre {
   margin-left: 1rem;
   margin-bottom: 2rem;
