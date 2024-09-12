@@ -2,8 +2,7 @@
 {{ $truncatedPublishDate := .PublishDate.Truncate $dateTruncateDuration }}
 {{ $truncatedLastmodDate := .Lastmod.Truncate $dateTruncateDuration }}
 {{ $showLastEditRow := $truncatedLastmodDate.After $truncatedPublishDate}}
-{{ $maxNumberOfTaxonomies := 4 }}
-
+{{ $maxNumberOfTaxonomyTerms := 4 }}
 
 <div class="post-card" onclick="location.href='{{ .RelPermalink}}'">
     <h2 class="post-card-title"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
@@ -35,28 +34,34 @@
             {{end}}
         </div>
 
-        {{ range $taxonomyName, $terms := .Site.Taxonomies }}
-            {{ $taxonomy := $.GetTerms $taxonomyName }}
-            {{ $taxonomyLen := len $taxonomy }}
-            {{ if gt $taxonomyLen 0}}
-                <div class="post-card-taxonomy">
-                    <span>{{- ($.Site.GetPage $taxonomyName).LinkTitle -}}:</span>
-                    {{- if ge $maxNumberOfTaxonomies $taxonomyLen -}}
-                        {{- range $index, $page := ($taxonomy | first $maxNumberOfTaxonomies) }}
-                            <span>
-                                {{- $page.LinkTitle -}}
-                                {{- if lt $index (sub $taxonomyLen 1) -}},{{- end }}
-                            </span>
-                        {{- end -}}
-                    {{- else -}}
-                        {{- range $index, $page := ($taxonomy | first (sub $maxNumberOfTaxonomies 1)) }}
-                            <span>{{- $page.LinkTitle }},</span>
-                        {{- end }}
-                        <span>... </span>
-                    {{- end -}}
-                </div>
-            {{end}}
-        {{end}}
+        <div class="post-card-hidden-meta">
+            {{/* This div has to be here because we can only animate "grid-template-rows" and */}}
+            {{/* currently can't pass the number to be able to repeat the template */}}
+            <div> 
+                {{ range $taxonomyName, $terms := .Site.Taxonomies }}
+                    {{ $taxonomy := $.GetTerms $taxonomyName }}
+                    {{ $taxonomyLen := len $taxonomy }}
+                    {{ if gt $taxonomyLen 0}}
+                        <div class="post-card-taxonomy">
+                            <span>{{- ($.Site.GetPage $taxonomyName).LinkTitle -}}:</span>
+                            {{- if ge $maxNumberOfTaxonomyTerms $taxonomyLen -}}
+                                {{- range $index, $page := ($taxonomy | first $maxNumberOfTaxonomyTerms) }}
+                                    <span>
+                                        {{- $page.LinkTitle -}}
+                                        {{- if lt $index (sub $taxonomyLen 1) -}},{{- end }}
+                                    </span>
+                                {{- end -}}
+                            {{- else -}}
+                                {{- range $index, $page := ($taxonomy | first (sub $maxNumberOfTaxonomyTerms 1)) }}
+                                    <span>{{- $page.LinkTitle }},</span>
+                                {{- end }}
+                                <span>... </span>
+                            {{- end -}}
+                        </div>
+                    {{end}}
+                {{end}}
+            </div>
+        </div>
     </div>
     <br/>
     <div class="post-card-summary">

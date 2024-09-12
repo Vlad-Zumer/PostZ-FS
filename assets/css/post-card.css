@@ -29,8 +29,8 @@
   border-left: 3px solid var(--tertiary-font-color);
 }
 
-.post-card:hover .post-card-meta-info .post-card-taxonomy {
-  display: block;
+.post-card:hover .post-card-meta-info .post-card-hidden-meta {
+  grid-template-rows: 1fr;
 }
 
 .post-card-inline-meta>* {
@@ -84,8 +84,16 @@
 }
 
 @media (pointer: fine) {
-  .post-card-taxonomy {
-      display: none;
+  .post-card-hidden-meta {
+      display: grid;
+      grid-template-rows: 0fr;
+      
+      /* Add animation for hidden metadata */
+      transition: grid-template-rows 250ms;
+  }
+
+  .post-card-hidden-meta>* {
+    overflow: hidden;
   }
 }
 
