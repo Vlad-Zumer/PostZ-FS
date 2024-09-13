@@ -1,5 +1,5 @@
 {{ if isset .Site.Params "github-page"}}
-    <div id="header-git-icon">
+    <div id="header-git-icon" title="Go to github page.">
         <a href="{{ .Site.Param `github-page` }}">
             {{ partial "svg-icons/git.html" . }}
         </a>
