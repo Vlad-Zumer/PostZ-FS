@@ -16,6 +16,16 @@ Light mode:
 
 ## Customization
 
+>[!TIP]
+> For better looking codeblocks use:
+> ````markdown
+> ```plaintext{linenos=inline}
+> code
+> code
+> code
+> ```
+> ````
+
 This theme can be customized by changing the `hugo.toml` file, or its equivalent.
 
 Colors can be found in the `./assets/css/definitions.css` file.

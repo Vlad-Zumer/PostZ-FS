@@ -56,9 +56,30 @@
   text-decoration: underline;
 }
 
+#content table {
+  /* center table */
+  width: fit-content;
+  margin: auto;
+
+  margin-bottom: 2rem;
+
+  border-collapse: collapse;
+}
+
+#content table, #content th, #content td {
+  border: 1px solid;
+}
+
+#content th, #content td {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 .block-maths-container *, .inline-maths-container *
 {
-  color: var(--primary-accent-font-color);
+  color: var(--secondary-accent-font-color);
   font-weight: bolder;
 }
 
@@ -67,7 +88,7 @@
 }
 
 .inline-maths-container {
-  border-bottom: 1px solid var(--primary-accent-font-color);
+  border-bottom: 1px solid var(--secondary-accent-font-color);
 }
 
 .taxonomy-item {
