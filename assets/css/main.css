@@ -104,6 +104,16 @@ ul {
   list-style-type: disc;
 }
 
+li>p {
+  display: inline;
+  text-indent: 0 !important;
+  margin-left: 0 !important;
+}
+
+li {
+  margin-bottom: 1rem;
+}
+
 p>code {
   color: var(--primary-accent-font-color);
   background-color: var(--secondary-bg-color);
