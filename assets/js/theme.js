@@ -101,4 +101,6 @@ function setupThemeSwitcher() {
     });
 }
 
-setupThemeSwitcher();
+document.addEventListener("DOMContentLoaded", (event) => {
+    setupThemeSwitcher();
+});
