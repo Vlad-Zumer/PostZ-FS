@@ -80,9 +80,9 @@ function setupThemeSwitcher() {
     let button = document.querySelector('#theme-switch');
 
     const onPrefChanged = () => {
-        root?.className=(currentTheme.name);
+        root?.className=currentTheme.name;
         currentTheme = Theme.fromPreference();
-        root?.className=(currentTheme.name);
+        root?.className=currentTheme.name;
     }
 
     // watch for theme changes
@@ -95,9 +95,9 @@ function setupThemeSwitcher() {
     // listen to theme change button click events
     button.addEventListener('click', (event) => {
         event.preventDefault();
-        root.className=(currentTheme.name);
+        root.className=currentTheme.name;
         currentTheme.toggle();
-        root.className=(currentTheme.name);
+        root.className=currentTheme.name;
     });
 }
 
