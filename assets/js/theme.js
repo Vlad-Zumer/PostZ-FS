@@ -101,17 +101,6 @@ function setupThemeSwitcher() {
     });
 }
 
-function refreshHeader()
-{
-    let header = document.querySelector("header");
-    for (const child of header.children) {
-        var a = window.getComputedStyle(child, null);
-      }
-}
-
 addEventListener("pageshow", (event) => {
     setupThemeSwitcher();
-    setTimeout(refreshHeader, 10);
-    let isPersisted = event.persisted ? "persisted" : "not persisted";
-    console.log(`Event: ${event.type} - ${isPersisted}`);
 });
