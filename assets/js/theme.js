@@ -101,7 +101,7 @@ function setupThemeSwitcher() {
     });
 }
 
-refreshHeader()
+function refreshHeader()
 {
     let header = document.querySelector("header");
     header.style.display = 'none';
