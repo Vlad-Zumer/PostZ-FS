@@ -114,7 +114,7 @@ li {
   margin-bottom: 1rem;
 }
 
-p>code {
+p>code, li>code {
   color: var(--primary-accent-font-color);
   background-color: var(--secondary-bg-color);
   padding-left: .5rem;
