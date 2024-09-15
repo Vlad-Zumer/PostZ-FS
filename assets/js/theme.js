@@ -91,7 +91,7 @@ function setupThemeSwitcher() {
     window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", e => { onPrefChanged(); });
 
     // init correct theme
-    root.classList.toggle(currentTheme.name);
+    changeThemeOnRoot(currentTheme.name);
 
     // listen to theme change button click events
     button.addEventListener('click', (event) => {
