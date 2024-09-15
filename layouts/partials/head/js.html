@@ -3,7 +3,7 @@
 {{- end }}
 
 {{- with resources.Get "js/theme.js" }}
-  {{ partial "head/load-js.html" (dict "jsRes" . "defer" false)}}
+  {{ partial "head/load-js.html" (dict "jsRes" . "defer" true)}}
 {{- end }}
 
 
