@@ -10,6 +10,8 @@ const THEME_TO_NAME = {
     1 : "light"
 }
 
+const THEME_NAMES = Object.values(THEME_TO_NAME);
+
 class Theme {
     #_value; // the theme value
 
@@ -17,8 +19,7 @@ class Theme {
         this.#value = Theme.#getStorage() ?? Theme.#getPreference();
     }
 
-    get name()
-    {
+    get name() {
         return THEME_TO_NAME[this.#value];
     }
 
@@ -26,20 +27,17 @@ class Theme {
         this.#value = 1 - this.#value;
     }
     
-    static fromPreference()
-    {
+    static fromPreference() {
         let theme = new Theme();
         theme.#value = Theme.#getPreference();
         return theme;
     }
     
-    get #value()
-    {
+    get #value() {
         return this.#_value;
     }
 
-    set #value(val)
-    {
+    set #value(val) {
         this.#_value = val;
         localStorage.setItem("theme", this.#value);
     }
@@ -57,8 +55,7 @@ class Theme {
         }
     }
 
-    static #getStorage()
-    {
+    static #getStorage() {
         const maybeInt = parseInt(localStorage.getItem("theme"));
         if (!maybeInt)
         {
@@ -79,10 +76,14 @@ function setupThemeSwitcher() {
     let root = document.querySelector(":root");
     let button = document.querySelector('#theme-switch');
 
+    const changeThemeOnRoot = (newTheme) => {
+        root.classList.remove(...THEME_NAMES);
+        root.classList.add(newTheme);
+    }
+
     const onPrefChanged = () => {
-        root?.className=currentTheme.name;
         currentTheme = Theme.fromPreference();
-        root?.className=currentTheme.name;
+        changeThemeOnRoot(currentTheme.name);
     }
 
     // watch for theme changes
@@ -95,9 +96,8 @@ function setupThemeSwitcher() {
     // listen to theme change button click events
     button.addEventListener('click', (event) => {
         event.preventDefault();
-        root.className=currentTheme.name;
         currentTheme.toggle();
-        root.className=currentTheme.name;
+        changeThemeOnRoot(currentTheme.name);
     });
 }
 
