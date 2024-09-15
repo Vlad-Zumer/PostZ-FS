@@ -101,8 +101,6 @@ function setupThemeSwitcher() {
     });
 }
 
-document.onreadystatechange = () => {
-    if (document.readyState === "complete") {
-        setupThemeSwitcher();
-    }
-};
+addEventListener("pageshow", (event) => {
+    setupThemeSwitcher();
+});
