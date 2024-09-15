@@ -101,8 +101,7 @@ function setupThemeSwitcher() {
     });
 }
 
-addEventListener("pageshow", (event) => {
+addEventListener("load", (event) => {
     setupThemeSwitcher();
-    let isPersisted = event.persisted ? "persisted" : "not persisted";
-    console.log(`Event: ${event.type} - ${isPersisted}`);
+    console.log(`Event: ${event.type}`);
 });
