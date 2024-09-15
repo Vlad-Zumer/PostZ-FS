@@ -101,6 +101,8 @@ function setupThemeSwitcher() {
     });
 }
 
-document.addEventListener("DOMContentLoaded", (event) => {
-    setupThemeSwitcher();
-});
+document.onreadystatechange = () => {
+    if (document.readyState === "complete") {
+        setupThemeSwitcher();
+    }
+};
