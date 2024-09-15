@@ -6,7 +6,7 @@ This is a [Hugo](https://gohugo.io/) theme designed around the concept of file g
 
 ## Demos
 
-[~~Live Site~~](#)
+[Live Site](https://vlad-zumer.github.io/)
 
 Dark mode:
 ![Homepage dark mode](.readme-files/home-dark.png)
