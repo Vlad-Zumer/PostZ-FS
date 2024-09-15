@@ -103,4 +103,6 @@ function setupThemeSwitcher() {
 
 addEventListener("pageshow", (event) => {
     setupThemeSwitcher();
+    let isPersisted = event.persisted ? "persisted" : "not persisted";
+    console.log(`Event: ${event.type} - ${isPersisted}`);
 });
