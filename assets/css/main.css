@@ -130,3 +130,9 @@ p>code, li>code {
   width: fit-content;
   margin: auto;
 }
+
+.clear-button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
