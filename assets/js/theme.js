@@ -74,7 +74,6 @@ class Theme {
 function setupThemeSwitcher() {
     let currentTheme = new Theme();
     let root = document.querySelector(":root");
-    let header = document.querySelector("header");
     let button = document.querySelector('#theme-switch');
 
     const changeThemeOnRoot = (newTheme) => {
@@ -94,10 +93,6 @@ function setupThemeSwitcher() {
     // init correct theme
     changeThemeOnRoot(currentTheme.name);
 
-    // refresh header
-    header.style.display = 'none';
-    header.style.display = 'block';
-
     // listen to theme change button click events
     button.addEventListener('click', (event) => {
         event.preventDefault();
@@ -106,8 +101,16 @@ function setupThemeSwitcher() {
     });
 }
 
+refreshHeader()
+{
+    let header = document.querySelector("header");
+    header.style.display = 'none';
+    header.style.display = 'block';
+}
+
 addEventListener("pageshow", (event) => {
     setupThemeSwitcher();
+    setTimeout(refreshHeader, 10);
     let isPersisted = event.persisted ? "persisted" : "not persisted";
     console.log(`Event: ${event.type} - ${isPersisted}`);
 });
