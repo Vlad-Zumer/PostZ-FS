@@ -104,8 +104,9 @@ function setupThemeSwitcher() {
 function refreshHeader()
 {
     let header = document.querySelector("header");
-    header.style.display = 'none';
-    header.style.display = 'block';
+    for (const child of header.children) {
+        var a = window.getComputedStyle(child, null);
+      }
 }
 
 addEventListener("pageshow", (event) => {
