@@ -12,7 +12,7 @@
   <h1 id="list-title">{{ .Title }}</h1>
 
   <div id="list-container">
-    {{ range where .Site.Home.Sections ".Section" "!=" "index" }}
+    {{ range where .Site.Home.Sections ".Section" "!=" "site-index" }}
       <div class="list-item" onclick="location.href='{{ .RelPermalink }}'">
         <h2 class="list-item-title">
           {{- if in (.Site.Param "no-inflect-types") .Section -}}

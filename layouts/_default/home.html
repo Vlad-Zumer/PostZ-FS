@@ -16,7 +16,7 @@
   </div>
 
   <div id="list-container">
-    {{ range where site.RegularPages "Section" "!=" "index" | first 5 }}
+    {{ range where site.RegularPages "Section" "!=" "site-index" | first 5 }}
       {{ partial "cards/post" .}}
     {{ end }}
   </div>
