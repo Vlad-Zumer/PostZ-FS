@@ -2,10 +2,13 @@
 <div class="block-maths-container">
   $$block-maths{{.Inner}}$$
 </div>
-{{ else }}
+{{- else -}}
 <span class="inline-maths-container">
-  {{- range (split .Inner " ") -}}
-    $$inline-maths{{ . }} $$
+  {{- range $index, $element := (split .Inner " ") -}}
+    {{- if gt $index 0 -}}
+      &#32;
+    {{- end -}}
+    $$inline-maths{{ $element }}$$
   {{- end -}}
 </span>
-{{ end }}
+{{- end -}}
