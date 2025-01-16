@@ -1,11 +1,11 @@
 {{ $expanderId := or (.Get "id") (errorf "%q shortcode requires a 'id' argument. See %s" .Name .Position) }}
 {{ $expanderTitle := or (.Get "title") (errorf "%q shortcode requires a 'title' argument. See %s" .Name .Position)}}
 <div class="expander">
-  <input class="expander-input" type="checkbox" id="{{- $expanderId -}}">
-  <label for="{{- $expanderId -}}" class="expander-label">{{- $expanderTitle -}}</label>
-  <div class="expander-animation-wrapper">
-    <div class="expander-content">
-      {{- .Inner -}}
-    </div>
-  </div>
+<input class="expander-input" type="checkbox" id="{{- $expanderId -}}">
+<label for="{{- $expanderId -}}" class="expander-label">{{- $expanderTitle -}}</label>
+<div class="expander-animation-wrapper">
+<div class="expander-content">
+{{ .Inner }}
+</div>
+</div>
 </div>
