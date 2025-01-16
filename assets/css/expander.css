@@ -1,0 +1,52 @@
+@import url("definitions.css");
+
+.expander {
+  padding: 1rem;
+  border: 2px solid var(--item-border-color);
+  border-radius: 1.5rem;
+  margin-top: var(--main-content-vert-margin);
+  margin-bottom: var(--main-content-vert-margin);
+}
+
+.expander .expander-input {
+  display: none;
+}
+
+.expander-animation-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 250ms, margin-top 250ms;
+}
+
+.expander-animation-wrapper *:last-child {
+  margin-bottom: 0px !important;
+}
+
+.expander-content {
+  overflow: hidden;
+  margin-left: 1em;
+}
+
+.expander-label {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  font-size: 1.2em;
+}
+
+.expander .expander-input:checked~.expander-animation-wrapper {
+  grid-template-rows: 1fr;
+  margin-top: 1rem;
+}
+
+.expander .expander-input:checked~.expander-label::before {
+  transform: rotate(90deg);
+}
+
+.expander-label::before {
+  display: inline-block;
+  content: '\25B6';
+  transform: rotate(0deg);
+  transition: transform 250ms;
+  margin-right: 0.5rem;
+}

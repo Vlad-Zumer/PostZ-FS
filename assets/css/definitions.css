@@ -1,11 +1,11 @@
 :root {
     /* Page background */
-    --main-bg-color-light:hsl(30, 25%, 90%);
+    --main-bg-color-light:hsl(30, 25%, 95%);
     --main-bg-color-dark:hsl(250, 15%, 10%);
     --main-bg-color: light-dark(var(--main-bg-color-light), var(--main-bg-color-dark));
 
     /* Background for elements in the page e.g. inline code */
-    --secondary-bg-color-light:hsl(30, 10%, 75%);
+    --secondary-bg-color-light:hsl(30, 10%, 80%);
     --secondary-bg-color-dark:hsl(250, 20%, 20%);
     --secondary-bg-color: light-dark(var(--secondary-bg-color-light), var(--secondary-bg-color-dark));
 
@@ -19,10 +19,10 @@
     --tertiary-font-color: light-dark(#808080, #707070);
 
     /* Most text that needs an accent color - inline code */
-    --primary-accent-font-color: light-dark(hsl(125, 100%, 30%), hsl(125, 100%, 50%));
+    --primary-accent-font-color: light-dark(hsl(125, 100%, 25%), hsl(125, 100%, 50%));
     
     /* Secondary accent */
-    --secondary-accent-font-color: light-dark(hsl(260, 90%, 22%), hsl(150, 100%, 70%));
+    --secondary-accent-font-color: light-dark(hsl(260, 90%, 20%), hsl(150, 100%, 70%));
     /* Tertiary accent */
     --tertiary-accent-font-color: light-dark(red, blue);
 
@@ -38,6 +38,9 @@
 
     /* Width of the main content on the page */
     --main-content-width: calc(100% - 40px);
+
+    /* Default vertical margin between content elements*/
+    --main-content-vert-margin: 2rem;
 }
 
 .dark {

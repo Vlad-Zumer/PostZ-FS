@@ -26,17 +26,17 @@
 
 #content p {
   margin-left: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: var(--main-content-vert-margin);
   text-indent: 2rem;
 }
 
 #content ul, #content ol {
-  margin-bottom: 2rem;
+  margin-bottom: var(--main-content-vert-margin);
 }
 
 #content pre {
   margin-left: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: var(--main-content-vert-margin);
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
@@ -47,7 +47,7 @@
 
 #content blockquote {
   margin-left: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: var(--main-content-vert-margin);
 }
 
 #content :is(h1,h2,h3,h4,h5,h6) {
@@ -61,7 +61,7 @@
   width: fit-content;
   margin: auto;
 
-  margin-bottom: 2rem;
+  margin-bottom: var(--main-content-vert-margin);
 
   border-collapse: collapse;
 }

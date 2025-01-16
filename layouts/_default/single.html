@@ -2,6 +2,9 @@
   {{- with resources.Get "css/single.css" }}
     {{ partial "head/load-css.html" .}}
   {{- end }}
+  {{- with resources.Get "css/expander.css" }}
+    {{ partial "head/load-css.html" .}}
+  {{- end }}
 {{end}}
 
 {{ define "main" }}
