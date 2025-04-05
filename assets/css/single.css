@@ -108,3 +108,11 @@ table.metadata-item-table td {
 .metadata-item-value:not(:has(a)) {
   font-style: oblique 10deg;
 }
+
+.footnotes {
+  color: var(--secondary-font-color);
+  border-top: 1px solid var(--secondary-font-color);
+  margin-top: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}

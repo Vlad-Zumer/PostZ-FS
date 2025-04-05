@@ -36,8 +36,11 @@
     /* Border color of items on list pages */
     --item-border-color: var(--secondary-font-color);
 
-    /* Width of the main content on the page */
+    /* Width of main content on the page */
     --main-content-width: calc(100% - 40px);
+
+    /* Width of images in the main content */
+    --main-content-image-width: 100%;
 
     /* Default vertical margin between content elements*/
     --main-content-vert-margin: 2rem;
@@ -49,6 +52,14 @@
 
 .light {
     color-scheme: light;
+}
+
+:root.dark .light-only {
+  display: none;
+}
+
+:root.light .dark-only {
+  display: none;
 }
 
 .hidden {
@@ -63,6 +74,7 @@
 @media only screen and (min-width: 600px) {
     :root {
         --main-content-width: 500px;
+        --main-content-image-width: 80%;
     }
 }
 
