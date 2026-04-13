@@ -1,0 +1,72 @@
+{{- $rows := default 1 (.Get "rows") -}}
+{{- $cols := default 1 (.Get "cols") -}}
+<figure {{ with .Get "id" }}id="{{ . }}"{{ end }}{{ with .Get "class" }} class="multi-figure-container {{ . }}"{{ end }} style="grid-template: repeat({{- $rows -}}, 1fr) auto / repeat({{- $cols -}}, 1fr)" >
+  {{- with .Get "sub-figures" -}}
+    {{- with . | unmarshal -}}
+      {{- range . -}}
+        {{- if not .src -}}
+          {{- continue -}}
+        {{- end -}}
+        {{/*  Compute row/col start and span */}}
+        {{- $rowStart := default "auto" (string (index . "start-row")) -}}
+        {{- $rowSpan := default "1" (string (index . "row-span")) -}}
+        {{- $colStart := default "auto" (string (index . "start-col")) -}}
+        {{- $colSpan := default "1" (string (index . "col-span")) -}}
+
+        <figure {{with .id }}id="{{ . }}"{{ end }} style="grid-row: {{ $rowStart }} / span {{ $rowSpan }}; grid-column: {{ $colStart }} / span {{ $colSpan }}">
+          {{/* Start image link */}}
+          {{- if .link -}}
+            <a href="{{ .link }}"{{ with .target }} target="{{ . }}"{{ end }}{{ with .rel }} rel="{{ . }}"{{ end }}>
+          {{- end -}}
+
+          {{/* Compute src link for image */}}
+          {{- $u := urls.Parse (.src) -}}
+          {{- $src := $u.String -}}
+          {{- if not $u.IsAbs -}}
+            {{- with or (.Page.Resources.Get $u.Path) (resources.Get $u.Path) -}}
+              {{- $src = .RelPermalink -}}
+            {{- end -}}
+          {{- end -}}
+
+          {{/*  Actual image  */}}
+          <img src="{{ $src }}"
+          {{- if or (.alt) (.caption) -}}
+          alt="{{ with .alt }}{{ . }}{{ else }}{{ .caption | markdownify| plainify }}{{ end }}"
+          {{- end -}}
+          {{- with .loading }} loading="{{ . }}"{{ end -}}
+          class="multi-figure-sub-image">
+
+          {{/*  End image link  */}}
+          {{- if .link -}}
+            </a>
+          {{- end -}}
+          
+          {{/*  Caption  */}}
+          {{- if or .caption .attr -}}
+            <figcaption>
+              <p>
+                {{/*  Caption  */}}
+                {{- .caption | markdownify -}}
+                {{/*  Start of attribute link  */}}
+                {{- with .attrlink -}}
+                  <a href="{{ . }}"> 
+                {{- end -}}
+                {{/*  Attribution  */}}
+                {{- .attr | markdownify -}}
+                {{/*  End attribute link  */}}
+                {{- if .attrlink -}}
+                  </a>
+                {{- end -}}
+              </p>
+            </figcaption>
+          {{- end -}}
+        </figure>
+      {{- end -}} {{/* range */}}
+    {{- end -}} {{/* marshalled sub-figures */}}
+  {{- end -}}
+  {{- if .Get "caption" -}}
+    <figcaption class="multi-figure-caption">
+        <p>{{- .Get "caption" | markdownify -}}</p>
+    </figcaption>
+  {{- end }}
+</figure>

@@ -144,3 +144,18 @@ p>code, li>code {
 .image-full-content {
   width: var(--main-content-image-width)
 }
+
+.multi-figure-container {
+  display: grid;
+  width: var(--main-content-image-width);
+  gap: 5px;
+}
+
+.multi-figure-caption {
+  grid-column: 1 / -1;
+  grid-row: -1 / span 1;
+}
+
+.multi-figure-sub-image {
+  width: 100%;
+}
